@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HYDROBLT — Tiny Shot. Big Recovery.</title>
+    <meta name="description" content="HYDROBLT: Recovery, Hydration, and 20 grams of protein packed in one tinny shot. Join the waiting list." />
+    <meta name="theme-color" content="#0b1328" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <div class="logo" aria-label="HYDROBLT home">HYDROBLT</div>
+      <button id="sound-toggle" class="btn ghost" aria-pressed="false" aria-label="Toggle thunder sound">Sound: Off</button>
+    </header>
+
+    <main id="top" class="main" role="main">
+      <section class="hero" aria-label="HYDROBLT hero">
+        <div class="storm-layer" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <div class="product" aria-hidden="true">
+            <!-- Minimal SVG to represent a tiny shot tin -->
+            <svg class="shot" width="160" height="260" viewBox="0 0 160 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="HYDROBLT shot">
+              <defs>
+                <linearGradient id="canGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#1a2c46" />
+                  <stop offset="50%" stop-color="#27466f" />
+                  <stop offset="100%" stop-color="#13233a" />
+                </linearGradient>
+                <linearGradient id="capGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#243c5f" />
+                  <stop offset="100%" stop-color="#3a5d8e" />
+                </linearGradient>
+              </defs>
+              <g>
+                <rect x="30" y="12" width="100" height="28" rx="6" fill="url(#capGrad)" />
+                <rect x="22" y="28" width="116" height="204" rx="18" fill="url(#canGrad)" stroke="#5defff" stroke-opacity="0.25" />
+                <rect x="35" y="70" width="90" height="120" rx="12" fill="#08121f" opacity="0.6" />
+                <text x="80" y="140" text-anchor="middle" fill="#76f2ff" font-size="18" font-family="Rajdhani, system-ui" letter-spacing="3">HYDRO</text>
+                <text x="80" y="162" text-anchor="middle" fill="#ffd34d" font-size="18" font-family="Rajdhani, system-ui" letter-spacing="3">BLT</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="message-area" aria-live="polite">
+            <div id="message" class="message">Thunder in the background</div>
+          </div>
+
+          <div class="bolt-wrapper" aria-hidden="true">
+            <svg id="bolt" class="bolt" viewBox="0 0 120 400" width="120" height="400" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3.5" result="coloredBlur" />
+                  <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+                <linearGradient id="boltGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#fffbe6" />
+                  <stop offset="60%" stop-color="#ffe27a" />
+                  <stop offset="100%" stop-color="#ffd34d" />
+                </linearGradient>
+              </defs>
+              <!-- Centered zig-zag bolt path -->
+              <path id="boltPath" d="M60 0 L75 80 L55 80 L85 160 L60 160 L95 250 L70 250 L105 340 L60 340" fill="none" stroke="url(#boltGrad)" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" filter="url(#glow)" />
+            </svg>
+          </div>
+
+          <div class="flash" aria-hidden="true"></div>
+
+          <h1 class="brand-title" aria-label="HYDROBLT"><span>HYDROBLT</span></h1>
+        </div>
+
+        <a class="skip-to-waitlist" href="#waitlist" aria-label="Skip to join the waiting list">Join the waiting list ↓</a>
+      </section>
+
+      <section id="waitlist" class="waitlist" aria-labelledby="waitlist-title">
+        <div class="waitlist-card">
+          <h2 id="waitlist-title">Join the waiting list</h2>
+          <p>Be first to feel the bolt. Early access, drops, and perks.</p>
+          <form id="waitlist-form" novalidate>
+            <div class="fields">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@domain.com" required autocomplete="email" />
+                <div id="email-error" class="error" role="alert" aria-live="polite"></div>
+              </div>
+            </div>
+            <button type="submit" class="btn primary">Join the waiting list</button>
+            <div id="form-success" class="success" role="status" aria-live="polite" hidden>You're in! We'll be in touch.</div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <p>© <span id="year"></span> HYDROBLT</p>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
